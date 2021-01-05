@@ -66,7 +66,7 @@ public class HomeFrame extends JFrame implements ActionListener{
 			System.out.println(exp);
 		}
 		
-		//To display 8 image on label
+		//To display 8 image on frame
 		if(list.size() <=8) {
 			displayMovie(list.size());
 		}else {
