@@ -88,7 +88,7 @@ public class SubmitFrame extends JFrame implements ActionListener{
 		if(e.getSource() == button) {
 			try {
 				dbconn conn = new dbconn();
-				conn.stmt.executeUpdate("insert into moviesdetails (id,name,genre,rating,description,imgpath) VALUES (null,'"+t1.getText()+"','"+t2.getText()+"','"+t3.getText()+"','"+area.getText()+"','"+s+"')");
+				conn.stmt.executeUpdate("insert into moviesdetails (id,name,genre,rating,description,imgpath) VALUES (null,'"+t1.getText()+"','"+t2.getText()+"','"+t3.getText()+"','"+area.getText()+"','"+s.toString()+"')");
 				new HomeFrame();
 				this.dispose();
 
@@ -107,8 +107,9 @@ public class SubmitFrame extends JFrame implements ActionListener{
 	             File selectedFile = fileChooser.getSelectedFile();
 	             String path = selectedFile.getAbsolutePath();
 	             s = path.replace("\\", "/");
-	             s = s.replace("C:/Users/hp/eclipse-workspace/MovieReviews/res/", "/");
-	             System.out.println(path);
+	             s = s.replaceAll(".+/", "");
+	             s = "/"+s;
+	             System.out.println(s);
 	              }
 	         else if(result == JFileChooser.CANCEL_OPTION){
 	             System.out.println("No Data");
